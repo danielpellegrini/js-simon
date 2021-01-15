@@ -35,6 +35,7 @@ alert(arrayRandomNum);
 // Dopo 30 secondi l’utente deve inserire, un prompt alla volta, i numeri che ha visto precedentemente.
 
 var arrayUserNum = [];
+var gotNumbers = [];
 
 setTimeout(function() {
   while (arrayUserNum.length < 5) {
@@ -45,12 +46,19 @@ setTimeout(function() {
       alert('You should insert a number.')
     } else if (comparedNums === true) {
       alert('Number already entered. Try again.')
-    } else if (comparedNums === false) {
-      arrayUserNum.push(userNum);
+    } else {
+      if (arrayRandomNum.includes(userNum)) {
+        arrayUserNum.push(userNum);
+        gotNumbers.push(userNum);
+      } else {
+        arrayUserNum.push(userNum);
+      }
     }
   }
   console.log(arrayUserNum)
+
+  // Una volta inseriti i 5 numeri, il software dice quanti e quali numeri sono stati ricordati.
+  alert('The numbers were: ' + arrayRandomNum + '.\nYou recalled these numbers: ' + gotNumbers);
+
+
 }, 1500); //I've set 1.5s just to try
-
-
-// Una volta inseriti i 5 numeri, il software dice quanti e quali numeri sono stati ricordati.
