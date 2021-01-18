@@ -61,4 +61,4 @@ setTimeout(function() {
   alert('The numbers were: ' + arrayRandomNum + '.\nYou recalled these numbers: ' + gotNumbers);
 
 
-}, 1500); //I've set 1.5s just to try
+}, 30000); 
